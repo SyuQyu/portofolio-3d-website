@@ -24,6 +24,9 @@ export default class World {
 
     }
     update() {
-
+        //NOTE FOR ANIMATION SETUP
+        // if(this.room) {
+        //     this.room.update();
+        // }
     }
 }

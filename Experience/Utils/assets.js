@@ -5,8 +5,13 @@ export default [
         path: "/models/Finale.glb"
     },
     {
-        name : "screen",
+        name : "screen1",
         type: "videoTexture",
-        path: "/textures/underground.mp4"
+        path: "/textures/underground_flip.mp4"
+    },
+    {
+        name : "screen2",
+        type: "videoTexture",
+        path: "/textures/underground_flip.mp4"
     }
 ]
