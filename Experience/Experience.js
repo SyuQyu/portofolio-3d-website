@@ -38,7 +38,7 @@ export default class Experience {
         this.camera.resize();
         
         //NOTE FOR ANIMATION SETUP
-        // this.world.resize();
+        this.world.resize();
 
         this.renderer.resize();
     }
@@ -46,8 +46,8 @@ export default class Experience {
     update(){
         this.camera.update();
 
-        //NOTE FOR ANIMATION SETUP
-        // this.world.update();
+        // NOTE FOR ANIMATION SETUP
+        this.world.update();
 
         this.renderer.update();
     }

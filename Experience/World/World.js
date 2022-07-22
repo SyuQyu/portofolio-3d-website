@@ -26,12 +26,13 @@ export default class World {
 
     }
     update() {
-        //NOTE FOR ANIMATION SETUP
-        // if(this.room) {
-        //     this.room.update();
-        // }
+        // NOTE FOR ANIMATION SETUP
+        if(this.room) {
+            this.room.update();
+        }
         if (this.controls) {
             this.controls.update();
+            
         }
     }
 }
