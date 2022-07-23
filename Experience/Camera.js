@@ -32,27 +32,36 @@ export default class Camera {
             (this.sizes.aspect * this.sizes.frustrum) / 2,
             this.sizes.frustrum / 2,
             -this.sizes.frustrum / 2,
-            -10,
-            10
+            -50,
+            50
         );
-        this.helper = new THREE.CameraHelper(this.orthographicCamera);
-        this.scene.add(this.helper);
+
+        this.orthographicCamera.position.y = 3;
+        this.orthographicCamera.position.z = 2.4;
+        this.orthographicCamera.rotation.x = -Math.PI / 6;
         this.scene.add(this.orthographicCamera)
+
+        //NOTE HELPER FOR SHOWING THE CAMERA
+        // this.helper = new THREE.CameraHelper(this.orthographicCamera);
+        // this.scene.add(this.helper);
+
 
         const size = 20;
         const divisions = 20;
 
-        const gridHelper = new THREE.GridHelper(size, divisions);
-        this.scene.add(gridHelper);
+        //NOTE HELPER FOR SHOWING THE GRID LIKE IN BLENDER
+        // const gridHelper = new THREE.GridHelper(size, divisions);
+        // this.scene.add(gridHelper);
 
-        const axesHelper = new THREE.AxesHelper(10);
-        this.scene.add(axesHelper);
+        //NOTE HELPER FOR SHOWING THE AXES LIKE IN BLENDER
+        // const axesHelper = new THREE.AxesHelper(10);
+        // this.scene.add(axesHelper);
     }
 
     setOrbitControls() {
         this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
         this.controls.enableDamping = true;
-        this.controls.enableZoom = true;
+        this.controls.enableZoom = false;
     }
 
     resize() {
@@ -72,9 +81,9 @@ export default class Camera {
     update() {
         this.controls.update();
 
-        this.helper.matrixWorldNeedsUpdate = true;
-        this.helper.update();
-        this.helper.position.copy(this.orthographicCamera.position);
-        this.helper.rotation.copy(this.orthographicCamera.rotation);
+        // this.helper.matrixWorldNeedsUpdate = true;
+        // this.helper.update();
+        // this.helper.position.copy(this.orthographicCamera.position);
+        // this.helper.rotation.copy(this.orthographicCamera.rotation);
     }
 }
