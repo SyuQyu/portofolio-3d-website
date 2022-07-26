@@ -5,17 +5,50 @@
   padding: 0;
   box-sizing: border-box;
 }
+h1, 
+section,
+p,
+span, 
+svg { 
+  transition: background-color 0.5s, color 0.5s;
+}
+svg{ fill: var(--color-text); }
 
 html, body {
   font-family: "Montserrat", sans-serif;
-  color: var(--text-black);
 }
 
 :root {
-  --text-black: #35373a;
-  --primary-color: #FAF4E5;
-  --primary-blue: #B2C8DF;
+  /* Light Theme Variables */
+  --color-text-light: #35373a;
+  --color-background-light:#FAF4E5;
+  --color-blue-light: #B2C8DF;
+  --color-green-light: #7AD0AC;
+  --color-blue1-light: #8395CD;
+  --color-pink-light: #e5a1aa;
+
+  /* Dark Theme Variables */
+  --color-text-dark: #FAF4E5;
+  --color-background-dark:#8395CD;
 }
+.light-theme {
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-blue: var(--color-blue-light);
+  --color-green: var(--color-green-light);
+  --color-blue1: var(--color-blue1-light);
+  --color-pink: var(--color-pink-light);
+}
+
+.dark-theme {
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+  --color-blue: var(--color-text-dark);
+  --color-green: var(--color-text-dark);
+  --color-blue1: var(--color-text-dark);
+  --color-pink: var(--color-text-dark);
+}
+
 /* experience --------------------------------------------------------------*/
 
 .experience {
@@ -71,7 +104,7 @@ html, body {
   position: relative;
   width: 56px;
   height: 28px;
-  background-color: var(--primary-blue);
+  background-color: var(--color-blue);
   border-radius: 999px;
   margin: 0px 16px;
   border: none;
@@ -84,7 +117,7 @@ html, body {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
   transition: all 0.2s ease-in-out;
 }
 
@@ -106,7 +139,7 @@ html, body {
   width: 50%;
   padding: 1000px 4%;
   margin: 0;
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
 }
 
 .left {
@@ -120,7 +153,7 @@ html, body {
 .section-intro-wrapper {
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--primary-blue);
+  border-bottom: 2px solid var(--color-blue);
   padding-bottom: 400px;
 }
 
@@ -134,18 +167,20 @@ html, body {
   font-weight:  700;
   line-height: 1.8;
   margin-top: 64px;
+  color: var(--color-text)
 }
 
 .section-text {
   line-height: 2;
   margin-top: 18px;
-  font-size: 16px
+  font-size: 16px;
+  color: var(--color-text)
 }
 
 /* Fancy Decoration part of section */
 .section-title {
   position: relative;
-  color: var(--primary-blue);
+  color: var(--color-blue);
 }
 
 .section-title-text {
@@ -156,6 +191,7 @@ html, body {
   transform: skewY(20deg);
   z-index: 5;
   text-transform: uppercase;
+  color: var(--color-blue)
 }
 
 .styleOne,
@@ -166,7 +202,7 @@ html, body {
   width: 100%;
   max-width: 278px;
   height: 60px;
-  border: 1px solid var(--primary-blue);
+  border: 1px solid var(--color-blue);
   transform-origin: left;
   transform: skewY(-20deg);
 }
@@ -182,14 +218,14 @@ html, body {
 .styleThree {
   top: 80px;
   transform: skewY(20deg);
-  background-color: var(--primary-blue);
+  background-color: var(--color-blue);
 }
 
 .section-number {
   position: absolute;
   bottom: 15px;
   right: 0px;
-  color: var(--primary-blue);
+  color: var(--color-blue);
   font-size: 24px;
 }
 
@@ -213,25 +249,83 @@ html, body {
   position: absolute;
   bottom: 70px;
   left: 5vw;
+  color: var(--color-text)
 }
 
 .hero-second {
   position: absolute;
   top: calc(60% - 120px);
   right: 0;
+  color: var(--color-text)
 }
 
 .hero-main-title {
   font-size: 38px;
+  color: var(--color-text)
 }
 
 .hero-main-description {
   font-size: 16px;
+  color: var(--color-text)
 }
 
 .hero-second-subheading {
   font-size: 32px;
+  color: var(--color-text)
 }
+
+
+
+
+
+/* Other Color Overrides ----------------------------------------------------------------------*/
+.pink-text {
+  color: var(--color-pink)
+}
+.pink-border {
+  border-color: var(--color-pink)
+}
+.pink-background {
+  background-color: var(--color-pink)
+}
+
+.green-text {
+  color: var(--color-green)
+}
+.green-border {
+  border-color: var(--color-green)
+}
+.green-background {
+  background-color: var(--color-green)
+}
+
+/* Media Queries ----------------------------------------------------------------------*/
+
+@media (max-width: 968px) {
+  .section {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
