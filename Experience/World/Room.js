@@ -11,6 +11,7 @@ export default class Room {
         // this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        this.roomChildren = {};
 
         this.lerp = {
             current: 0,
@@ -35,19 +36,57 @@ export default class Room {
                     groupChild.receiveShadow = true;
                 })
             }
-
-            if (child.name === "screen_1") {
-                child.material = new THREE.MeshBasicMaterial({
+            // console.log(child);
+            if (child.name === "pc") {
+                child.children[2].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen1,
                 });
-
-            }
-            if (child.name === "screen_2") {
-                child.material = new THREE.MeshBasicMaterial({
+                child.children[3].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen2,
                 });
-
             }
+            if (child.name === "mini_floor") {
+                console.log(child.position, "child mini floor")
+                child.position.x = -0.442098;
+                child.position.z = 2.14666;
+            }
+
+            // if (child.name === "mailbox" || child.name === "plant_floor" ||
+            //     child.name === "floor_1" || child.name === "floor_2" ||
+            //     child.name === "floor_3" || child.name === "plant" ||
+            //     child.name === "lamp") {
+            //     child.scale.set(0, 0, 0)
+            // }
+            if (child.name === "painting") {
+                if (child.children[1].material.name === "picture 1") {
+                    child.children[1].material = new THREE.MeshBasicMaterial({
+                        map: this.resources.items.painting1,
+                    });
+                }
+                if (child.children[5].material.name === "picture 2") {
+                    child.children[5].material = new THREE.MeshBasicMaterial({
+                        map: this.resources.items.painting2,
+                    });
+                }
+                if (child.children[3].material.name === "picture 3") {
+                    child.children[3].material = new THREE.MeshBasicMaterial({
+                        map: this.resources.items.painting3,
+                    });
+                }
+            }
+            // if (child.name === "screen_2") {
+            //     child.material = new THREE.MeshBasicMaterial({
+            //         map: this.resources.items.screen2,
+            //     });
+
+            // }
+            child.scale.set(0, 0, 0)
+            if(child.name === "Cube") {
+                // child.scale.set(0.5, 0.5, 0.5);
+                child.position.set(0, 0, -1.5);
+                child.rotation.y = Math.PI / 4;
+            }
+            this.roomChildren[child.name.toLowerCase()] = child;
         })
         const width = .8;
         const height = .7;
@@ -57,6 +96,7 @@ export default class Room {
         rectLight.rotation.x = -Math.PI / 1.2;
         this.actualRoom.add(rectLight)
 
+        this.roomChildren["rectLight"] = rectLight;
         // const rectLightHelper = new RectAreaLightHelper(rectLight);
         // rectLight.add(rectLightHelper);
 
