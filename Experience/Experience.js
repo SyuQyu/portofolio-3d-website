@@ -33,6 +33,7 @@ export default class Experience {
         
 
         this.preloader.on("enablecontrols", () => {
+            console.log("controls on")
             this.controls = new Controls();
         })
         this.time.on("update", () => {
